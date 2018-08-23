@@ -1,0 +1,10 @@
+version: '2'
+services:
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    extends:
+      file: ./env.yaml
+      service: env
+    command: spawn-fcgi -f /i3r/index.wsgi -p 9002 -u nobody -F 32 -n
